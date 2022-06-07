@@ -11,33 +11,42 @@
 
 
 ### Contexts | Reducers
-* _AuthContext_
-    * just useful to simulate the login / logout process
-* _authState_ properties: `isLoggedIn` and `isLoading`
-    * `isLoggedIn` is a boolean
-    * `isLoading` is a boolean
-* _authAction_ properties: 
+* __AuthContext__ - just useful to simulate the login / logout process
 ```typescriptreact
-type: 'isLoggedIn' | 'isLoading'
-payload: boolean
+export const AuthContext = createContext({
+    state: initialAuthState as authState,
+    dispatch: ({type, payload}: authAction) => {},
+});
+```
+* __authState__ properties: `isLoggedIn` and `isLoading`
+```typescriptreact
+export type authState = {
+    isLoading: boolean,
+    isLoggedIn: boolean,
+}
+```
+* __authAction__ properties: passed to the reducer
+```typescriptreact
+// type = field to update
+// payload = new value
+export type authAction = 
+      {type: 'setIsLoading', payload: boolean}
+    | {type: 'setIsLoggedIn', payload: boolean};
 ```
 
 
-### Screens
-* contain the individual screen
-* nested in the stackScreens
-
-
-### Stack Navigators
-* [stacks](./utils/stacks) - Contains the inner stacks of screens for when you
-possibly need to navigate to an inner screen
-* [tabs](./navigation/stacksgit@github.com:ndonfris/React-Native-authentication-example.git/) - Where the stacks are outermost nested in.
-
+### Screens | Stack Navigators
+| Location | Description |
+|----------|-------------|
+| [Individual Screen's](./navigation/screens) | Where the individual screens are located |
+| [Wrapped Screen's](./navigation/stacks) | Where the stacks of screen's are located which wrap the _individual_ screens |
+| [Splash Screen](./navigation/screens/Splash.tsx) | The loading screen |
+| [Tab Navigator Stack](./navigation/screens/HomeScreen.tsx) | The _Home Screen_ which is Tab Stack Navigator of the wrapped screens |   |
 
 ### Dependencies
 * icons
 ```bash
-yarn add -D @expo/vector-icons react-native-vector-icons
+yarn add @expo/vector-icons react-native-vector-icons
 ``` 
 * relative links 
 ```bash
@@ -51,11 +60,11 @@ yarn add -D @react-navigation/native @react-navigation/native-stack @react-navig
 ```bash
  yarn add lottie-react-native
 ```
-* animated bottom bar 
+* animated bottom bar (not yet externally needed)
 ```bash 
 yarn add -D ...
-not yet externally needed
 ```
+
 
 
 
