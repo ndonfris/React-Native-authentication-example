@@ -6,7 +6,7 @@ export default function InnerAccountInfoScreen() {
 
     return (
         <View style={styles.container}>
-            <Text>More info about your Account...</Text>
+            <Text style={styles.text}>More info about your Account...</Text>
             <ChangePageButton action={"back"} newPageName={""} /> 
         </View>
     );
@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     text: {
-        fontSize: 30
+        fontSize: 30,
+        paddingTop: 50,
     },
 });  
 

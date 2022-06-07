@@ -10,6 +10,7 @@ module.exports = function(api) {
                     {
                         alias: {
                             screens: "./navigation/screens",
+                            themes: "./utils/themes",
                             stacks:  "./navigation/stacks",
                             components: "./components",
                             contexts: "./utils/contexts",

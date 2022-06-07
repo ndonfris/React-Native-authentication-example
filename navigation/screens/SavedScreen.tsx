@@ -8,7 +8,7 @@ export default function SavedScreen() {
     
     return (
         <View style={styles.container}>
-            <Text>Saved Screen</Text>
+            <Text style={styles.text}>Saved Screen</Text>
             <ChangePageButton action={"newPage"} newPageName={"InnerSavedScreen"} />
             <ChangePageButton action={"newPage"} newPageName={"InnerSavedScreen"} />
         </View>
@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     text: {
-        fontSize: 30
+        fontSize: 30,
+        paddingTop: 50,
     },
 });  
 

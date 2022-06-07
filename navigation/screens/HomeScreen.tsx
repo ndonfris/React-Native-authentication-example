@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import {AuthContext} from "contexts/AuthContext";
-import HomeStack from "navigation/HomeStack";
-import AuthStack from "navigation/AuthStack";
+import HomeStack from "stacks/HomeStack";
+import AuthStack from "stacks/AuthStack";
 
 
 export default function HomeScreen() {

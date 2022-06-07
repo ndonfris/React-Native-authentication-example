@@ -7,7 +7,7 @@ export default function SearchScreen({}: {}) {
     
     return (
         <View style={styles.container}>
-            <Text>Search Screen</Text>
+            <Text style={styles.text}>Search Screen</Text>
             <ChangePageButton action={"newPage"} newPageName={"InnerSearchScreen"} /> 
         </View>
     );
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     text: {
+        paddingTop: 50,
         fontSize: 30
     },
 });  

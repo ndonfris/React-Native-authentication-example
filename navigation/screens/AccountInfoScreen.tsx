@@ -7,7 +7,7 @@ export default function AccountInfoScreen() {
     
     return (
         <View style={styles.container}>
-            <Text>Account Info Screen</Text>
+            <Text style={styles.text}>Account Info Screen</Text>
             <ChangePageButton action={"logout"} newPageName={"Logout"} /> 
         </View>
     );
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     text: {
-        fontSize: 30
+        fontSize: 30,
+        paddingTop: 50,
     },
 });  
 

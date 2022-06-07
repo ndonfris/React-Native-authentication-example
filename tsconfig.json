@@ -6,6 +6,7 @@
         "paths": {
             "screens/*": ["navigation/screens/*"],
             "stacks/*": ["navigation/stacks/*"],
+            "themes/*": ["utils/themes/*"],
             "components/*": ["components/*"],
             "contexts/*": ["utils/contexts/*"],
             "reducers/*": ["utils/reducers/*"]

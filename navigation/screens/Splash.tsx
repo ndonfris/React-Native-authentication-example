@@ -5,7 +5,7 @@ import {View, StyleSheet} from "react-native";
  
 
 
-export default function Splash({shouldLogin}: {shouldLogin: boolean}) {
+export default function Splash({ showSplash }: { showSplash: boolean}) {
 
     const {state, dispatch} = useContext(AuthContext);
     const animation = useRef(null);
@@ -16,27 +16,27 @@ export default function Splash({shouldLogin}: {shouldLogin: boolean}) {
     }, [state.isLoading]);
 
     return (
-       <>{state.isLoading
+    ( state.isLoading || showSplash )
         ? <View style={styles.animationContainer}>
-          <LottieView
-            ref={animation}
-            style={{
-              width: 200,
-              height: 200,
-              backgroundColor: '#fff',
-            }}
-            loop={false}
-            onAnimationFinish={() => {
-                dispatch({type: 'setIsLoading', payload: false});
-                if (shouldLogin) {
-                    dispatch({type: 'setIsLoggedIn', payload: true});
-                }
-            }}
-            source={require('../assets/load_golfball_animation.json')}
-          />
+            <LottieView
+                ref={animation}
+                style={{
+                    width: 200,
+                    height: 200,
+                    backgroundColor: '#fff',
+                }}
+                loop={false}
+                onAnimationFinish={() => {
+                    dispatch({type: 'setIsLoading', payload: false});
+                    if (showSplash) {
+                        dispatch({type: 'setIsLoggedIn', payload: true});
+                    }
+                }}
+                source={require('../../assets/load_golfball_animation.json')}
+            />
         </View>
-        : <></>}</>
-      );
+        : <></>
+    );
 }
 
 const styles = StyleSheet.create({

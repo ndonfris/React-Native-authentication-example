@@ -21,7 +21,7 @@ export default function App() {
     return (
         <AuthContext.Provider value={{state, dispatch}}>
             <NavigationContainer independent={true}>
-                {state.isLoading ? <Splash shouldLogin={showSplash} /> : <HomeScreen />}
+                {state.isLoading ? <Splash showSplash={showSplash} /> : <HomeScreen />}
             </NavigationContainer> 
         </AuthContext.Provider>
 

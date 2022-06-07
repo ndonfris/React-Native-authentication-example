@@ -7,7 +7,7 @@ export default function CreateAccountScreen() {
     
     return (
         <View style={styles.container}>
-            <Text>Create Account Screen</Text>
+            <Text style={styles.text}>Create Account Screen</Text>
             <ChangePageButton action={"newPage"} newPageName={"LoginScreen"} />
             <ChangePageButton action={"create"} newPageName={"Create"} />
         </View>
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     text: {
-        fontSize: 30
+        fontSize: 30,
+        paddingTop: 50,
     },
 });  
 
