@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import React from "react";
-import AccountInfoScreen from "../screens/AccountInfoScreen";
-import InnerAccountInfoScreen from "../screens/InnerAccountInfoScreen";
+import AccountInfoScreen from "screens/AccountInfoScreen";
+import InnerAccountInfoScreen from "screens/InnerAccountInfoScreen";
 
 
 const AccountInnerStack = createNativeStackNavigator();

@@ -1,7 +1,7 @@
 import {useNavigation} from "@react-navigation/core";
 import React, {useContext} from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import {AuthContext} from "../contexts/AuthContext";
+import {AuthContext} from "contexts/AuthContext";
 
 
 interface ChangePageButtonProps {

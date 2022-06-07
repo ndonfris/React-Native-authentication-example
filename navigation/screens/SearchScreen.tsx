@@ -1,14 +1,14 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
-import ChangePageButton from "../components/ChangePageButton";
+import ChangePageButton from "components/ChangePageButton";
 
 
-export default function InnerSearchScreen() {
-
+export default function SearchScreen({}: {}) {
+    
     return (
         <View style={styles.container}>
-            <Text>More info about your Search Result...</Text>
-            <ChangePageButton action={"back"} newPageName={""} /> 
+            <Text>Search Screen</Text>
+            <ChangePageButton action={"newPage"} newPageName={"InnerSearchScreen"} /> 
         </View>
     );
 }
