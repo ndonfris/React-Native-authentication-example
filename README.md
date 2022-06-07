@@ -16,15 +16,22 @@
 * _authState_ properties: `isLoggedIn` and `isLoading`
     * `isLoggedIn` is a boolean
     * `isLoading` is a boolean
-* _authAction_ properties: `isLoggedIn`, `isLoading`
+* _authAction_ properties: 
+```typescriptreact
+type: 'isLoggedIn' | 'isLoading'
+payload: boolean
+```
+
 
 ### Screens
 * contain the individual screen
 * nested in the stackScreens
 
 
-### StackScreens
-* contain the inner stacks of screens
+### Stack Navigators
+* [stacks](./utils/stacks) - Contains the inner stacks of screens for when you
+possibly need to navigate to an inner screen
+* [tabs](./navigation/stacksgit@github.com:ndonfris/React-Native-authentication-example.git/) - Where the stacks are outermost nested in.
 
 
 ### Dependencies
