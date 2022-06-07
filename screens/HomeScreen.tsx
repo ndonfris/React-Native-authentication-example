@@ -1,47 +1,31 @@
-import React, {useState} from "react";
-import { BottomNavigation } from "react-native-paper";
+import React, {useContext, useEffect, useState} from "react";
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, View } from "react-native";
+import SearchStack from "../screenStacks/SearchStack";
+import SavedStack from "../screenStacks/SavedStack";
+import AccountStack from "../screenStacks/AccountStack";
+import {AuthContext} from "contexts/AuthContext";
+import HomeStack from "screenStacks/HomeStack";
+import AuthStack from "screenStacks/AuthStack";
 
 
 export default function HomeScreen() {
-    const [index, setIndex] = useState(0);
-    /* useState hook, defines values for it's inner items */
-    const [routes] = useState([
-        {key: "search", title: "Search",icon: "golf-cart",color: "blue"},
-        {key: "saved", title: "Saved", icon: "golf", color: "pink" },
-        {key: "account", title: "Browse",icon: "account",color: "yellow"},
-    ]);
 
-  /* maps the state to the actual page route */
-    const renderScene = BottomNavigation.SceneMap({
-        search: SearchStack,
-        saved: SavedStack,
-        account: AccoutStack,
-    });
+    const {state, dispatch} = useContext(AuthContext);
+
+    useEffect(() => {
+        console.log(`state.isLoggedIn: ${state.isLoggedIn}`);
+    }, [state.isLoggedIn]);
+
 
   /* return the bottom tabbar component and render the active page (initializes to Search)  */
   return (
-    <View style={styles.container}>
-      <BottomNavigation
-        navigationState={{ index, routes }}
-        onIndexChange={setIndex}
-        renderScene={renderScene}
-        shifting={true}
-        barStyle={{
-          backgroundColor: "blue",
-          height: 70,
-        }}
-        inactiveColor={"lightGrey"}
-        activeColor={"white"}
-      />
-    </View>
+          state.isLoggedIn
+          ? <HomeStack />
+          : <AuthStack />
   );
 
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-});
 

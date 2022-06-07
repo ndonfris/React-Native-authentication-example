@@ -1,35 +1,53 @@
 import {useNavigation} from "@react-navigation/core";
 import React, {useContext} from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import {authContext} from "../contexts/AuthContext";
+import {AuthContext} from "../contexts/AuthContext";
 
 
 interface ChangePageButtonProps {
-    newPageName?: string;
+    newPageName: string;
     action?: string;
 }
 
 const ChangePageButton = ({ newPageName, action }: ChangePageButtonProps) => {
 
-    const navigate = useNavigation();
-    const {state, dispatch} = useContext(authContext);
+    const navigation = useNavigation();
+    const {state, dispatch} = useContext(AuthContext);
 
     const onPress = () => {
-        if (action === "back" && navigate.canGoBack()) {
-            navigate.goBack();
-        } else if (action === "create") {
-            dispatch({type: "setIsLoggedIn", payload: true});
-        } else if (action === "login") {
-            dispatch({type: "setIsLoggedIn", payload: true});
-        } else {
-            navigate.navigate({ key: newPageName || "Home"});
+
+        switch (action) {
+            case "back":
+                if (navigation.canGoBack()) {
+                    navigation.goBack();
+                }
+                break;
+            case "create":
+                dispatch({type: "setIsLoggedIn", payload: true});
+                break;
+            case "login":
+                dispatch({type: "setIsLoggedIn", payload: true});
+                break;
+            case "logout":
+                dispatch({type: "setIsLoggedIn", payload: false});
+                break;
+            case "push":
+                // @ts-ignore
+                navigation.navigate({name: newPageName});
+                break;
+            default:
+                // @ts-ignore
+                navigation.navigate({name: newPageName});
+                break;
         }
     }
 
     return (
-        <TouchableOpacity onPress={onPress} style={styles.container}>
-            <Text style={styles.text}>{newPageName}</Text>
-        </TouchableOpacity>
+        <View style={styles.container}>
+            <TouchableOpacity onPress={onPress} style={styles.button}>
+                <Text style={styles.text}>{newPageName}</Text>
+            </TouchableOpacity>
+        </View>
     );
 }
 
@@ -39,12 +57,16 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    button: {
         backgroundColor: "blue",
-        width: 200,
+        width: 300,
         height: 100,
         borderRadius: 20,
+        justifyContent: 'center',
     },
     text: {
+        textAlign: "center",
         fontSize: 20,
         color: '#fff',
         fontWeight: 'bold'

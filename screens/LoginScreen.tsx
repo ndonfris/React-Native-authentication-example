@@ -3,13 +3,13 @@ import { Text, View, StyleSheet } from "react-native";
 import ChangePageButton from "../components/ChangePageButton";
 
 
-export default function CreateAccountScreen() {
+export default function LoginScreen() {
     
     return (
         <View style={styles.container}>
-            <Text>Create Account Screen</Text>
+            <Text>Login Screen</Text>
             <ChangePageButton action={"newPage"} newPageName={"CreateAccountScreen"} />
-            <ChangePageButton action={"create"} newPageName={"create"} />
+            <ChangePageButton action={"login"} newPageName={"Login"} />
         </View>
     );
 }

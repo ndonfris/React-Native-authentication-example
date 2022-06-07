@@ -1,32 +1,33 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { StatusBar } from 'expo-status-bar';
-import React, {useContext, useReducer} from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import {authContext} from './contexts/AuthContext';
+import React, {useReducer, useEffect, useMemo, useState} from 'react';
+import HomeScreen from 'screens/HomeScreen';
+import Splash from 'screens/Splash';
+import {AuthContext} from 'contexts/AuthContext';
+import authReducer, {initialAuthState} from 'reducers/AuthReducer';
 
-import useCachedResources from './hooks/useCachedResources';
-import useColorScheme from './hooks/useColorScheme';
-import Navigation from './navigation';
-import NavigationStacks from './NavigationStacks';
-import authReducer from './reducers/AuthReducer';
-import LoadingScreen from './screens/LoadingScreen';
+
 
 
 export default function App() {
 
+    const [ showSplash, setShowSplash] = useState(true);
+    const [ state, dispatch ] = useReducer(authReducer, initialAuthState);
 
-    const authStates = useContext(authContext);
+    useEffect(() => {
+        console.log(`state.isLoading: ${ state.isLoading }`)
+    }, [state.isLoggedIn]);
 
-    const [state, dispatch] = useReducer(authReducer, authStates as never);
 
     return (
-        <SafeAreaProvider>
-            {
-                state.isLoading 
-                    ? <LoadingScreen />
-                    : <NavigationStacks />
-            }
-        </SafeAreaProvider>
+        <AuthContext.Provider value={{state, dispatch}}>
+            <NavigationContainer independent={true}>
+                {state.isLoading
+                ? <Splash shouldLogin={showSplash} /> 
+                : <HomeScreen />
+                }
+            </NavigationContainer> 
+        </AuthContext.Provider>
+
     );
 }
+ 

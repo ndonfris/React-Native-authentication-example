@@ -1,6 +1,18 @@
 {
-  "extends": "expo/tsconfig.base",
-  "compilerOptions": {
-    "strict": true
-  }
+    "esModuleInterop": true,
+    "extends": "expo/tsconfig.base",
+    "compilerOptions": {
+        "baseUrl":".",
+        "paths": {
+            "screens/*": ["screens/*"],
+            "screenStacks/*": ["screenStacks/*"],
+            "components/*": ["components/*"],
+            "contexts/*": ["contexts/*"],
+            "reducers/*": ["reducers/*"]
+        },
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "importHelpers": true,
+        "strict": true
+    }
 }

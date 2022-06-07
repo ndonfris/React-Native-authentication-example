@@ -9,7 +9,7 @@ export default function CreateAccountScreen() {
         <View style={styles.container}>
             <Text>Create Account Screen</Text>
             <ChangePageButton action={"newPage"} newPageName={"LoginScreen"} />
-            <ChangePageButton action={"login"} newPageName={"Login"} />
+            <ChangePageButton action={"create"} newPageName={"Create"} />
         </View>
     );
 }

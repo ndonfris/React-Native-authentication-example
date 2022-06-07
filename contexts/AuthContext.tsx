@@ -1,12 +1,17 @@
 import {createContext} from "react";
-import {initialAuthState, authAction} from "../reducers/AuthReducer";
+import {initialAuthState, authAction, authState} from "../reducers/AuthReducer";
 
-export const authContext = createContext({
+export interface AuthContextProps {
+    cartState: authState;
+    cartDispatch: React.Dispatch<authAction>;
+}
+
+export const AuthContext = createContext({
     state: initialAuthState,
     dispatch: ({type, payload}: authAction) => {},
 });
 
-
+//export default AuthContext;
 
 
 

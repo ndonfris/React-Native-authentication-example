@@ -20,12 +20,11 @@ export type authAction =
 const authReducer = (state: authState = initialAuthState, action: authAction) => {
     switch (action.type) {
         case 'setIsLoading':
-            return {...state, token: action.payload};
+            return {...state, isLoading: action.payload}; 
         case 'setIsLoggedIn':
-            return {...state, token: action.payload};
+            return {...state, isLoggedIn: action.payload};
         default:
-            Error('authReducer: unknown action type');
-            return state;
+            return initialAuthState;
     }
 }
 

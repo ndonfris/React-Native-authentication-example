@@ -1,18 +1,17 @@
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import React from "react";
-import InnerSearchScreen from "../screens/InnerSearchScreen";
-import SearchScreen from "../screens/SearchScreen";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import LoginScreen from "screens/LoginScreen";
+import CreateAccountScreen from "screens/LoginScreen";
 
 
-const Stack = createNativeStackNavigator();
+const AuthScreenStack = createNativeStackNavigator();
 
-export default function SearchStack() {
+export default function AuthStack() {
     return (
-        <NavigationContainer>
-            <Stack.Screen name="SearchScreen" component={SearchScreen}/>
-            <Stack.Screen name="InnerSearchScreen" component={InnerSearchScreen}options={{gestureEnabled:true, headerBackTitle:"Saved Screen", headerBackVisible: true}}/> 
-        </NavigationContainer>
+        <AuthScreenStack.Navigator initialRouteName="LoginScreen">
+            <AuthScreenStack.Screen key="LoginScreen" name="LoginScreen" component={LoginScreen}/>
+            <AuthScreenStack.Screen key="CreateAccountScreen" name="CreateAccountScreen" component={CreateAccountScreen}/>
+        </AuthScreenStack.Navigator>
     );
 }
 

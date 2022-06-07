@@ -8,7 +8,7 @@ export default function SearchScreen({}: {}) {
     return (
         <View style={styles.container}>
             <Text>Search Screen</Text>
-            <ChangePageButton action={"newPage"} newPageName={"SearchResultScreen"} /> 
+            <ChangePageButton action={"newPage"} newPageName={"InnerSearchScreen"} /> 
         </View>
     );
 }
