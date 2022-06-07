@@ -9,11 +9,11 @@ module.exports = function(api) {
                     'module-resolver',
                     {
                         alias: {
-                            screens: "./screens",
-                            screenStacks: "./screenStacks",
+                            screens: "./navigation/screens",
+                            stacks:  "./navigation/stacks",
                             components: "./components",
-                            contexts: "./contexts",
-                            reducers: "./reducers"
+                            contexts: "./utils/contexts",
+                            reducers: "./utils/reducers"
                         },
                         extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
                     }

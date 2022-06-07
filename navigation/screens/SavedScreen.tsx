@@ -1,15 +1,16 @@
+
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
-import ChangePageButton from "../components/ChangePageButton";
+import ChangePageButton from "components/ChangePageButton";
 
 
-export default function CreateAccountScreen() {
+export default function SavedScreen() {
     
     return (
         <View style={styles.container}>
-            <Text>Create Account Screen</Text>
-            <ChangePageButton action={"newPage"} newPageName={"LoginScreen"} />
-            <ChangePageButton action={"create"} newPageName={"Create"} />
+            <Text>Saved Screen</Text>
+            <ChangePageButton action={"newPage"} newPageName={"InnerSavedScreen"} />
+            <ChangePageButton action={"newPage"} newPageName={"InnerSavedScreen"} />
         </View>
     );
 }
@@ -23,4 +24,5 @@ const styles = StyleSheet.create({
         fontSize: 30
     },
 });  
+
 

@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import React from "react";
-import InnerSavedScreen from "../screens/InnerSavedScreen";
-import SavedScreen from "../screens/SavedScreen";
+import InnerSavedScreen from "screens/InnerSavedScreen";
+import SavedScreen from "screens/SavedScreen";
 
 const SavedScreenStack = createNativeStackNavigator();
 

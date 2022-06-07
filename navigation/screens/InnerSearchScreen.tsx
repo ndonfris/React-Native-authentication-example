@@ -1,19 +1,18 @@
-
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
-import ChangePageButton from "../components/ChangePageButton";
+import ChangePageButton from "components/ChangePageButton";
 
 
-export default function SavedScreen() {
-    
+export default function InnerSearchScreen() {
+
     return (
         <View style={styles.container}>
-            <Text>Saved Screen</Text>
-            <ChangePageButton action={"newPage"} newPageName={"InnerSavedScreen"} />
-            <ChangePageButton action={"newPage"} newPageName={"InnerSavedScreen"} />
+            <Text>More info about your Search Result...</Text>
+            <ChangePageButton action={"back"} newPageName={""} /> 
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,

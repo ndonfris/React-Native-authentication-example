@@ -3,9 +3,9 @@ import React, {useState} from "react";
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, View } from "react-native";
-import SearchStack from "../screenStacks/SearchStack";
-import SavedStack from "../screenStacks/SavedStack";
-import AccountStack from "../screenStacks/AccountStack";
+import SearchStack from "stacks/SearchStack";
+import SavedStack from "stacks/SavedStack";
+import AccountStack from "stacks/AccountStack";
 
 const Tab = createMaterialBottomTabNavigator();
 

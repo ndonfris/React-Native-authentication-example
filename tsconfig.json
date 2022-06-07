@@ -4,11 +4,11 @@
     "compilerOptions": {
         "baseUrl":".",
         "paths": {
-            "screens/*": ["screens/*"],
-            "screenStacks/*": ["screenStacks/*"],
+            "screens/*": ["navigation/screens/*"],
+            "stacks/*": ["navigation/stacks/*"],
             "components/*": ["components/*"],
-            "contexts/*": ["contexts/*"],
-            "reducers/*": ["reducers/*"]
+            "contexts/*": ["utils/contexts/*"],
+            "reducers/*": ["utils/reducers/*"]
         },
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
