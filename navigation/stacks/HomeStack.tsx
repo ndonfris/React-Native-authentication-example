@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import SearchStack from "stacks/SearchStack";
 import SavedStack from "stacks/SavedStack";
 import AccountStack from "stacks/AccountStack";
@@ -15,9 +15,10 @@ export default function HomeStack() {
   return (
         <Tab.Navigator
             initialRouteName="SearchScreen"
-            activeColor="#fff"
+            activeColor="navy"
             inactiveColor="#fff"
             sceneAnimationEnabled={true}
+            labeled={false}
             barStyle={styles.barStyle}
         >
             <Tab.Screen
@@ -25,8 +26,8 @@ export default function HomeStack() {
                 component={SearchStack}
                 options={{
                     tabBarLabel: 'Search',
-                    tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="magnify" color={color} size={26} />
+                    tabBarIcon: ({ color, focused }) => (
+                        <MaterialCommunityIcons name="magnify" color={focused ? "navy" : color} size={26} />
                     ),
                 }}
             />  
@@ -64,5 +65,31 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 0,
     },
+    unFocusedIcon: {
+        borderRadius: 50,
+        width: 70,
+        height: 26,
+        alignItems: 'center',
+    },
+    aroundIcon: {
+        backgroundColor: '#fff',
+        borderTopWidth: 5,
+        borderColor: "#fff",
+        borderRadius: 20,
+        width: 70,
+        height: 56,
+        alignItems: 'center',
+    },
+    focusedIcon: {
+        backgroundColor: '#fff',
+        borderRadius: 20,
+        width: 70,
+        height: 26,
+        alignItems: 'center',
+    },
+    text: {
+        color: '#fff',
+        textAlign: 'center',
+    }
 });
 
