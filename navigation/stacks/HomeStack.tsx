@@ -1,11 +1,34 @@
-
-import React, {useState} from "react";
+import React, {ReactNode, useState} from "react";
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { StyleSheet, View } from "react-native";
 import SearchStack from "stacks/SearchStack";
 import SavedStack from "stacks/SavedStack";
 import AccountStack from "stacks/AccountStack";
+
+
+interface TabProps {
+    name: string;
+    iconName: any;
+    iconLabel: string;
+    component: React.FunctionComponent;
+}
+   
+
+const TabScreen = ({name, component, iconName, iconLabel}: TabProps) => {
+    return (
+        <Tab.Screen
+            name={name}
+            component={component} 
+            options={{
+                tabBarLabel: iconLabel,
+                tabBarIcon: ({color}) => (
+                    <MaterialCommunityIcons name={iconName} color={color} size={26} />
+                )
+            }}
+        />
+    );
+}
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -21,15 +44,15 @@ export default function HomeStack() {
             barStyle={styles.barStyle}
         >
             <Tab.Screen
-                name="SearchStack"
-                component={SearchStack}
+                name="SavedStack"
+                component={SavedStack}
                 options={{
                     tabBarLabel: 'Search',
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="magnify" color={color} size={26} />
+                        <MaterialCommunityIcons name='magnify'  color={color} size={26} />
                     ),
                 }}
-            />  
+            />
             <Tab.Screen
                 name="SavedStack"
                 component={SavedStack}
